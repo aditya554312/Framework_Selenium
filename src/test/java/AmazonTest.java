@@ -10,7 +10,7 @@ public class AmazonTest extends Base {
         objAmazonPage.clickTopNav(driver);
         String temp= objExcel.getData();
         System.out.println(temp);
-        //logger.info("clicked mobile in top navigation");
+        //logger.info("clicked mobile in top navigation");hello
 
     }
 }
