@@ -1,3 +1,6 @@
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -10,8 +13,8 @@ public class Base {
     public BrowserFactory objBrowserFactory;
     public ConfigDataProvider objConfig;
     XLDataProvider objExcel;
-    //public ExtentReports report;
-    //public ExtentTest logger;
+    public ExtentReports report;
+    public ExtentTest logger;
     @BeforeSuite
     public void setUpSuite() {
 
@@ -19,10 +22,11 @@ public class Base {
          objConfig = new ConfigDataProvider();
          objExcel = new XLDataProvider();
 
-        //report = new ExtentReports();
+        report = new ExtentReports();
 
-        //ExtentHtmlReporter extent = new ExtentHtmlReporter("C:\\Users\\Ranjan Singh\\reports\\amazon.html");
-        //report.attachReporter(extent);
+
+        ExtentSparkReporter extent = new ExtentSparkReporter("C:\\Users\\Ranjan Singh\\reports\\amazon.html");
+        report.attachReporter(extent);
     }
     @BeforeClass
     public void setup(){
@@ -33,7 +37,7 @@ public class Base {
         if(result.getStatus()==ITestResult.FAILURE) {
             Helper.CaptureScreeshot(driver);
         }
-        //report.flush();
+        report.flush();
     }
     @AfterClass
     public void tearDown(){

@@ -5,12 +5,12 @@ public class AmazonTest extends Base {
 
     @Test
     public void topNavClick(){
-        //report.createTest("amazon homepage");
-        //logger.info("Starting application");
+        logger= report.createTest("amazon homepage");
+        logger.info("Starting application");
         objAmazonPage.clickTopNav(driver);
         String temp= objExcel.getData();
         System.out.println(temp);
-        //logger.info("clicked mobile in top navigation");hello
+        logger.info("clicked mobile in top navigation");
 
     }
 }

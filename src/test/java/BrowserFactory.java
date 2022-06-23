@@ -16,7 +16,7 @@ public class BrowserFactory {
         else {
             Reporter.log("We don't support this browser at the moment");
         }
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
         driver.manage().window().maximize();
         driver.get(url);
         return driver;
